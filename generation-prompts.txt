@@ -1,0 +1,140 @@
+Generated with the built-in image_gen tool.
+
+INITIAL PROMPT
+
+Use case: infographic-diagram.
+Create ONE polished, highly readable, ALL-ENGLISH educational infographic. The user wants a memorable crayon-cartoon visual explaining how AI model lifecycle, research functions, and properties intersect. No Chinese anywhere. This is a complete standalone poster, not a photograph of a poster.
+
+FORMAT AND STYLE
+Very high-resolution landscape poster, approximately 4:3 aspect ratio. Warm ivory paper with subtle paper grain. Friendly wax-crayon and colored-pencil cartoon symbols, organic colored outlines, light pastel shading, substantial whitespace. Deep charcoal, exceptionally legible, neat printed lettering; no cursive. Accurate spelling. Main matrix is the dominant visual. Consistent color coding: Development blue; Evals green; Alignment pink; Control amber; Interpretability purple; Security teal. Illustrations should make the ideas easy to remember, without crowding the text.
+
+TITLE, exact:
+"HOW AI WORK FITS TOGETHER"
+Subtitle, exact:
+"Lifecycle × Research functions × Properties"
+
+MAIN MATRIX: roughly upper two-thirds of the poster, with FIVE stage rows and SIX research-function columns.
+Across the top, a horizontal axis label:
+"RESEARCH FUNCTIONS →  WHAT / HOW"
+On the left, a prominent downward lifecycle spine:
+"LIFECYCLE ↓"
+"WHEN / WHERE"
+The lifecycle is vertical, and the six research functions are horizontal column headings. Do NOT transpose this layout.
+
+The six column headers, in this exact order, with crayon mnemonic icon and small explanatory caption:
+1. "Development" — blue wrench + little building blocks; caption "Build a better model"
+2. "Evals" — green clipboard + gauge; caption "Measure behavior"
+3. "Alignment" — pink robot with a heart and compass; caption "Shape model behavior"
+4. "Control" — amber robot inside a monitored safety enclosure; caption "Constrain the system"
+5. "Interpretability" — purple magnifying glass over a neural circuit; caption "Explain the internals"
+6. "Security" — teal shield stopping an incoming attack arrow; caption "Defend against attacks"
+
+Stage labels along the left spine, top to bottom:
+"Data" with a stack of data cards
+"Pretrain" with gears assembling a robot
+"Midtrain" with the robot studying a larger book
+"Posttrain" with the robot being coached
+"Deployment" with a robot using tools at a computer
+
+IMPORTANT: On the downward connector after Pretrain and before Midtrain, show a small distinct capsule labeled "Base Model" and, beneath it, "checkpoint". This is an output/checkpoint between training stages, NOT a sixth research-function column and NOT an extra full matrix row. Keep it clearly legible and do not overlap stage labels.
+
+The matrix has exactly these 30 cells. The row and column associations must be correct. Text in quotation marks below is literal; each slash can be replaced with a line break or a centered dot where it improves readability.
+
+Data row:
+Development: "Data selection / Cleaning"
+Evals: "Contamination checks"
+Alignment: "Values in data"
+Control: "—"
+Interpretability: "Data attribution"
+Security: "Data poisoning"
+
+Pretrain row:
+Development: "Architecture / Scaling / Optimizer"
+Evals: "Checkpoint evals"
+Alignment: "Limited direct work"
+Control: "—"
+Interpretability: "Representations / Circuits"
+Security: "Training infra / Weights"
+
+Midtrain row:
+Development: "Long context / Domains / Reasoning"
+Evals: "Capability evals"
+Alignment: "Behavior shaping"
+Control: "Early exploration"
+Interpretability: "Capability mechanisms"
+Security: "Checkpoint security"
+
+Posttrain row:
+Development: "SFT / RL / Reasoning RL"
+Evals: "Capability + safety evals"
+Alignment: "SFT / RLHF / RLAIF"
+Control: "Control training / Evals"
+Interpretability: "Reward / Refusal / Deception"
+Security: "Adversarial robustness"
+
+Deployment row:
+Development: "Inference / Agents"
+Evals: "Continuous evals"
+Alignment: "Feedback / Oversight"
+Control: "Monitoring / Sandboxing / Permissions"
+Interpretability: "Runtime anomaly detection"
+Security: "API / Agents / Exfiltration"
+
+Give the Posttrain × Alignment cell a saturated pink crayon outline and a small star labeled "CORE". Give Deployment × Control an amber outlined highlight and a star labeled "CORE". Give Deployment × Security a teal outlined highlight and a star labeled "CORE". All other cells remain pale and easy to read. These highlights indicate typical focus, not exclusive ownership.
+Small legend immediately below matrix:
+"Examples, not exclusive boundaries. ★ Typical focus."
+A slim blue-green feedback loop underneath:
+"Train → Evaluate → Understand failures → Train again"
+Draw a small curved return arrow for the loop.
+
+LOWER SECTION: two large, clearly separated teaching cards side by side.
+
+LEFT CARD, heading:
+"ALIGNMENT & CONTROL"
+Use two mini cartoon scenes, with the same robot so the difference is instantly visible:
+Pink scene: a trainer changes a robot's internal compass/heart. Caption:
+"Alignment: change the model's behavior."
+Amber scene: an unchanged robot is surrounded by an external monitor eye, permission key, and sandbox boundary. Caption:
+"Control: keep the system safe even if the model is untrusted."
+A concise handwritten note:
+"Alignment ≠ Posttraining"
+"Posttraining also builds capabilities."
+
+RIGHT CARD, heading:
+"THIRD AXIS: PROPERTIES"
+Four colorful luggage-tag/cartoon stickers, all clearly legible:
+"Capability"  "Propensity"  "Alignment"  "Risk"
+Explanatory line:
+"What property are we studying?"
+Then a bold formula:
+"Project = Stage × Function(s) × Property"
+Below that, three compact worked examples, with colored stage/function/property pills or color-coded text and clear line breaks:
+"Reasoning RL"
+"Posttrain × Development × Capability"
+"Model organism"
+"Posttrain × Alignment / Evals / Interpretability × Misalignment propensity"
+"Per-action monitor"
+"Deployment × Control / Evals × Risk reduction"
+Allow the long model-organism example to wrap naturally over two lines without making text tiny.
+
+BOTTOM MEMORY STRIP, exact:
+"Pipeline: how the model is produced."
+"Research: what we do with it."
+"Properties: what we care about."
+Then a prominent final short phrase:
+"Three intersecting dimensions — one map."
+
+COMPOSITION CONSTRAINTS
+Prioritize readable English, correct matrix relationships, distinct axes, and memorable symbols. Use short labels at comfortable type sizes. Ensure no cropped text, no overlapping text, no gibberish, no fake logos, no watermark, no extra invented labels, no numbered fake citations. Preserve all six function columns and all five lifecycle rows. The lifecycle must run down the page. Base Model must appear only as the checkpoint after Pretrain. Keep the matrix and lower explanatory cards visually organized and spacious. This should feel like an excellent hand-illustrated learning poster for adult AI researchers: warm and charming, conceptually precise, not childish.
+
+FINAL CLEANUP PROMPT
+
+Use case: precise-object-edit.
+Edit the supplied English crayon educational infographic with ONE targeted cleanup: REMOVE the four groups of extraneous decorative slogans, restoring the same blank warm ivory paper underneath.
+Remove:
+1. The entire top-left decorative sun patch and its text "Better AI for a brighter tomorrow".
+2. The entire top-right mountain decoration and its texts "SAME IDEAS BRIGHTER PEOPLE" and "Curiosity today, safer tomorrow."
+3. The little decorative arrow and slogan "Iterate for safer, more capable AI!" at the far right just beneath the matrix, beside the feedback loop.
+4. The little sunburst slogan "SAME IDEAS NEW PROGRESS" in the right-hand properties card, beside the formula.
+
+Preserve EVERYTHING else exactly: canvas size and aspect ratio, main title, subtitle, six function columns, five stage rows, all 30 cell contents, Base Model checkpoint, every scientifically meaningful label, diagrams, card borders, fonts, colors, texture, train/evaluate feedback loop, Alignment & Control card, property tags, all three project examples, bottom memory strip. Do not reword, rearrange, add, or remove any other content. Keep the useful speech bubble "New goals" and explanatory robot labels. All text must remain English. The cleaned empty corner space should look intentional and provide breathing room. The main title stays centered and unchanged.
