@@ -1,0 +1,4 @@
+data/*.csv text eol=lf
+figures/*.svg linguist-generated=true -whitespace
+data/participation_model_fit.json linguist-generated=true
+data/participation_transitions.csv linguist-generated=true
