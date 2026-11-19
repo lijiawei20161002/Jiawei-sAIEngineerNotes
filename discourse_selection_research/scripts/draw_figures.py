@@ -1,6 +1,6 @@
 """English model diagram and conditional empirical fit from saved estimates."""
 from pathlib import Path
-import os,json,tempfile
+import argparse,os,json,tempfile
 ROOT=Path(__file__).resolve().parents[1]
 FIGURES=ROOT/"figures"
 FIGURES.mkdir(exist_ok=True)
@@ -12,34 +12,46 @@ from matplotlib.patches import FancyBboxPatch,FancyArrowPatch
 import numpy as np
 
 plt.rcParams.update({'font.family':'DejaVu Sans','svg.fonttype':'path'})
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--process-only',action='store_true',help='Update the model diagram without rebuilding the unchanged empirical plot.')
+args=parser.parse_args()
 BLUE='#245b80';ORANGE='#a85e20';INK='#172b3b'
-fig,ax=plt.subplots(figsize=(7,3.15),dpi=240)
-ax.set(xlim=(0,14),ylim=(0,6.3));ax.axis('off')
-def label(x,y,s,size=9,color=INK,ha='center'):
+fig,ax=plt.subplots(figsize=(7,2.8),dpi=240)
+ax.set(xlim=(0,14),ylim=(0,6.1));ax.axis('off')
+def label(x,y,s,size=8.4,color=INK,ha='center'):
     ax.text(x,y,s,fontsize=size,color=color,ha=ha,va='center',linespacing=1.3)
 def box(x,y,w,h,s,color=BLUE):
     ax.add_patch(FancyBboxPatch((x-w/2,y-h/2),w,h,boxstyle='round,pad=.08,rounding_size=.08',lw=1,edgecolor=color,facecolor='#fff4e8' if color==ORANGE else '#eff6fb'))
     label(x,y,s,color=color)
 def arrow(a,b,rad=0,dashed=False,color=BLUE):
     ax.add_patch(FancyArrowPatch(a,b,connectionstyle=f'arc3,rad={rad}',arrowstyle='-|>',mutation_scale=10,lw=1.1,linestyle=(0,(3,2)) if dashed else '-',color=color))
-box(3,4.8,3.2,.75,'Inactive: A(t) = 0')
-box(11,4.8,3.2,.75,'Active: A(t) = 1')
-arrow((4.7,4.98),(9.3,4.98),-.10);label(7,5.48,'Return: q(t)')
-arrow((9.3,4.60),(4.7,4.60),-.10);label(7,3.98,'Stop: 1−s(t)')
-arrow((2.1,5.27),(3.9,5.27),-.55);label(3,6.02,'Remain inactive: 1−q(t)',8.5)
-arrow((10.1,5.27),(11.9,5.27),-.55);label(11,6.02,'Continue: s(t)',8.5)
-label(7,3.27,'Participation payoff index: α − δt + ρA(t−1)',10)
-ax.plot([.3,13.7],[2.85,2.85],color='#d4dde4',lw=.8)
-label(.35,2.45,'Optional extension (not estimated)',9,color=ORANGE,ha='left')
-box(2.2,1.43,3.6,.9,'Public commitments\nand social feedback',ORANGE)
-box(7,1.43,3.2,.9,'Entrenchment e\n(resistance to revision)',ORANGE)
-box(11.8,1.43,3.6,.9,'Private updating and\nfuture participation',ORANGE)
-arrow((4.15,1.43),(5.25,1.43),dashed=True,color=ORANGE)
-arrow((8.75,1.43),(9.85,1.43),dashed=True,color=ORANGE)
-label(7,.42,'Transitions apply after first contribution; individual indices are omitted.',8,color='#516779')
+label(.3,5.82,'Channel choice (not estimated): benefit B − opportunity cost c × time τ',8.6,ORANGE,'left')
+box(2.35,5.15,3.9,.60,'Public advice: V(public)',ORANGE)
+box(7,5.15,3.9,.60,'Private advice: V(private)',ORANGE)
+box(11.65,5.15,3.9,.60,'Other work: reference 0',ORANGE)
+label(7,4.58,'Each day: choose the highest net benefit + an option-specific random shock.',8)
+ax.plot([.3,13.7],[4.25,4.25],color='#d4dde4',lw=.8)
+label(.3,3.94,'Estimated public-return process, conditional on first contribution',8.6,BLUE,'left')
+box(3,2.77,4.2,.64,'No thread comment: A(t) = 0')
+box(11,2.77,4.2,.64,'Thread comment: A(t) = 1')
+arrow((5.2,2.94),(8.8,2.94),-.13);label(7,3.38,'Return: q(t)',8)
+arrow((8.8,2.60),(5.2,2.60),-.13);label(7,2.16,'Stop: 1−s(t)',8)
+arrow((1.8,3.17),(3.8,3.17),-.25);label(2.8,3.62,'Stay: 1−q(t)',7.7)
+arrow((10.2,3.17),(12.2,3.17),-.25);label(11.2,3.62,'Continue: s(t)',7.7)
+label(7,1.65,'A = 0 does not distinguish private advice from other activities.',8,color='#516779')
+ax.plot([.3,13.7],[1.35,1.35],color='#d4dde4',lw=.8)
+label(.3,1.07,'Entrenchment extension (not estimated)',8.6,ORANGE,'left')
+label(2.1,.48,'Commitments / feedback',8,color=ORANGE)
+label(7,.48,'Resistance to revision: e',8,color=ORANGE)
+label(11.8,.48,'Later beliefs / choices',8,color=ORANGE)
+arrow((4.25,.48),(4.95,.48),dashed=True,color=ORANGE)
+arrow((9.05,.48),(9.70,.48),dashed=True,color=ORANGE)
 fig.subplots_adjust(left=.01,right=.99,top=.99,bottom=.01)
 for ext in ('png','svg'):fig.savefig(FIGURES/f'fitted_process.{ext}',dpi=240,facecolor='white')
 plt.close(fig)
+if args.process_only:
+    print('Saved English process figure; empirical plot unchanged.')
+    raise SystemExit(0)
 
 r=json.loads((ROOT/'data'/'participation_model_fit.json').read_text())
 x=np.arange(1,15)

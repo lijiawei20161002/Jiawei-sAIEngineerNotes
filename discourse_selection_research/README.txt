@@ -22,6 +22,19 @@ Rebuild from this folder (Python 3; dependencies in requirements.txt)
 Scripts resolve paths relative to the project, so they also work from another
 working directory. Plotting caches go to the system temporary directory. Builds
 do not create preview images, older documents, or a duplicate research ZIP.
+For a theory-only diagram revision, use draw_figures.py --process-only to keep
+the empirical plot unchanged, then rerun build_document.py.
+
+Model scope
+The document separates an unestimated channel-choice mechanism from the fitted
+public-return process. In the first, expected benefit minus the opportunity
+cost of time determines a noisy choice among public advice, private advice and
+other work. Expertise could increase costs, benefits or efficiency, so its
+effect on public participation is ambiguous. This mechanism is motivated by
+Kirchner's Via productiva (2022):
+https://universalprior.substack.com/p/via-productiva
+Belief entrenchment is also an unestimated extension. Neither extension changes
+the three fitted specifications or their saved estimates.
 
 Data scope
 The input CSV contains 60 unique comments from two LessWrong threads. The fitted
@@ -32,7 +45,8 @@ https://www.lesswrong.com/posts/njAZwT8nkHnjipJku/alignment-faking-in-large-lang
 Window: 2024-12-18 00:00 UTC inclusive to 2025-01-02 00:00 UTC exclusive.
 Snapshot: 2026-11-19. The model conditions on each account's first contribution;
 352 subsequent account-days include seven active days. It does not estimate
-silent readers' initial entry or private beliefs. The lag model has one unstable
+silent readers' initial entry, opportunity costs, private advice or private
+beliefs. Never-posting experts are outside the sample. The lag model has one unstable
 account holdout. The estimated model describes conditional participation; it
 does not establish a causal effect of incentives or belief entrenchment.
 

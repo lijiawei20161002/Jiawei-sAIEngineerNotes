@@ -8,29 +8,37 @@ An Economic Model of Discourse Participation
 
 Model
 
-When the benefits and costs of speaking covary with beliefs, differential participation, persistence and amplification can distort apparent prevalence. Experts answering questions can also become overrepresented; selection need not reduce quality.
+Belief-related differences in participation, persistence and amplification can distort apparent prevalence. Experts answering questions can also be overrepresented; selection need not reduce quality.
 
-If satisfied participants leave sooner than motivated disputants, debate can persist without anyone becoming more extreme. This explanation requires exit to depend on beliefs or motivation, not merely that a debate continues.
+If satisfied participants exit sooner than motivated disputants, debate can persist without anyone becoming more extreme. This requires selective exit, not merely continuing disagreement.
 
-Past approval, rejection and expression costs may change future participation. Fixed differences in entry and retention already generate selection; feedback that changes these probabilities makes participation depend on incentive history.
+Fixed differences in entry and retention already generate selection. If approval, rejection or expression costs change later participation probabilities, today's participants also reflect yesterday's incentives.
 
-To model return decisions, use a daily, myopic random-utility baseline. For account i on day t, Aᵢ(t) is 1 if it comments in the thread and 0 otherwise. Time t counts days since the paper's release. Let α be baseline net benefit, δ its daily decline, and ρ the association with previous-day participation. A person participates when this net benefit plus a standard logistic random shock is positive. Writing σ(z)=1/(1+exp(−z)), the participation probability conditional on observed history is:
+Kirchner writes in Via productiva (2022), “The people with the most relevant insight are probably busy doing stuff.” Valuable outside work may deter public advice while selective private advice remains worthwhile.
 
-Pr[Aᵢ(t)=1] = σ[α − δt + ρAᵢ(t−1)].
+For person i, day t and advice channel k (public or private), let Bᵢₖ(t) be expected benefit, cᵢ(t) the opportunity cost per hour, and τᵢₖ(t) the hours required. Net benefit, measured in utility units, is:
 
-Let q(t) be the probability of returning after an inactive day, and s(t) the probability of continuing after an active day. Thus q(t)=σ(α−δt) and s(t)=σ(α−δt+ρ). Positive ρ can reflect reinforcement, habit or persistent differences between people; it does not identify causal feedback.
+Vᵢₖ(t) = Bᵢₖ(t) − cᵢ(t)τᵢₖ(t).
 
-Belief entrenchment is an optional extension. Let eᵢ(t) denote resistance to revising a private belief. Public commitments and feedback may change e, affecting subsequent participation and updating after counterevidence. These private states are unobserved here; the dashed paths in Figure 1 are not fitted.
+Choose the highest net benefit plus an option-specific random shock among public advice, private advice and other work (reference benefit zero). Expertise may increase c, but also B or efficiency; its effect on public participation is ambiguous.
+
+Fit only a reduced-form public-return process after first contribution. Aᵢ(t)=1 denotes a comment in the thread on day t since release; otherwise Aᵢ(t)=0. Define σ(z)=1/(1+exp(−z)), α as common baseline net benefit, δ as daily decline, and ρ as association with yesterday's activity. A standard logistic net-utility shock gives:
+
+Pr[Aᵢ(t)=1 | history] = σ[α − δt + ρAᵢ(t−1)].
+
+After an inactive day, return probability is q(t)=σ(α−δt); after an active day, continuation probability is s(t)=σ(α−δt+ρ). Positive ρ may reflect feedback, habit or persistent individual differences; it does not identify causation.
+
+An unestimated extension lets commitments and feedback change eᵢ(t), resistance to belief revision. Entrenchment may affect later updating and participation. The fitted α does not separate benefits, opportunity costs or channel choice.
 
 [FIGURE]
 
-Figure 1. Participation after first contribution. Initial entry dates are conditioned on; dashed paths represent an unestimated entrenchment extension.
+Figure 1. Orange mechanisms are unestimated. Blue transitions condition on first contribution.
 
 [PAGE_BREAK]
 
 Data
 
-The case is the LessWrong release thread for Alignment Faking in Large Language Models, December 18, 2024–January 1, 2025 UTC. A November 19, 2026 snapshot contains 53 comments from 27 accounts. Starting the day after each account's first contribution, there are 352 account-days at risk and seven active account-days. Each account-day records whether that account comments at least once; multiple same-day comments count once. I condition on first-contribution dates and fit subsequent decisions by maximum likelihood. Initial arrivals are inputs, not predictions; deleted historical comments cannot be recovered.
+The LessWrong release thread for Alignment Faking in Large Language Models contains 53 comments from 27 accounts during December 18, 2024–January 1, 2025 UTC (snapshot: November 19, 2026). Starting the day after each account's first contribution gives 352 account-days, seven with comments. Multiple same-day comments count once. Maximum likelihood conditions on initial arrivals; it does not predict them. Never-posting experts, opportunity costs, private advice and private beliefs are unobserved; deleted comments cannot be recovered.
 
 Results
 
@@ -40,4 +48,4 @@ Compare three specifications: constant participation probability; declining net 
 
 Figure 2. Conditional fit to returning contributors, excluding first-time arrivals. Curves use fitted parameters; they are not forecasts of total discussion volume.
 
-Leaving out one account at a time also favors decline over the constant model: held-out negative log likelihood falls from 35.53 to 20.67. This tests other accounts' subsequent decisions, not future dates. Adding recent activity yields ρ=0.45, but improves fit little and is unstable in some account holdouts. The fit describes a short burst of thread participation. It does not establish belief-dependent selection, selective exit or responses to measured rewards; with seven return events and no private-belief measurements, entrenchment remains a hypothesis.
+Leaving out one account at a time favors decline: held-out negative log likelihood falls from 35.53 to 20.67. This tests other accounts, not future dates. Adding recent activity gives ρ=0.45, little improvement and an unstable account holdout. The fit captures a short burst, not its cause. Testing opportunity-cost selection needs an independently sampled expert pool, measures of outside demands and public/private advising. Current data establish neither that busy experts stay silent nor belief-dependent exit, causal reinforcement or entrenchment.
