@@ -47,5 +47,3 @@ Compare three specifications: constant participation probability; declining net 
 [FIT_FIGURE]
 
 Figure 2. Conditional fit to returning contributors, excluding first-time arrivals. Curves use fitted parameters; they are not forecasts of total discussion volume.
-
-Leaving out one account at a time favors decline: held-out negative log likelihood falls from 35.53 to 20.67. This tests other accounts, not future dates. Adding recent activity gives ρ=0.45, little improvement and an unstable account holdout. The fit captures a short burst, not its cause. Testing opportunity-cost selection needs an independently sampled expert pool, measures of outside demands and public/private advising. Current data establish neither that busy experts stay silent nor belief-dependent exit, causal reinforcement or entrenchment.
